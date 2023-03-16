@@ -1,0 +1,378 @@
+﻿
+/* For mobile phones: */
+ [class*="col-"] {
+    width: 100%;
+  }
+  
+  @media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+  
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  } 
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.logo{
+    height: 200px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*
+=====
+DEPENDENCES
+=====
+*/
+
+.r-link {
+    display: var(--rLinkDisplay, inline-flex) !important;
+}
+
+    .r-link[href] {
+        color: var(--rLinkColor) !important;
+        text-decoration: var(--rLinkTextDecoration, none) !important;
+    }
+
+.r-list {
+    padding-left: var(--rListPaddingLeft, 0) !important;
+    margin-top: var(--rListMarginTop, 0) !important;
+    margin-bottom: var(--rListMarginBottom, 0) !important;
+    list-style: var(--rListListStyle, none) !important;
+}
+
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.menu {
+    --rLinkColor: var(--menuLinkColor, currentColor);
+}
+
+.menu__link {
+    display: var(--menuLinkDisplay, block);
+}
+
+    /* 
+focus state 
+*/
+
+    .menu__link:focus {
+        outline: var(--menuLinkOutlineWidth, 2px) solid var(--menuLinkOutlineColor, currentColor);
+        outline-offset: var(--menuLinkOutlineOffset);
+    }
+
+/* 
+fading siblings
+*/
+
+.menu:hover .menu__link:not(:hover) {
+    --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
+}
+
+/*
+=====
+PRESENTATION STYLES
+=====
+*/
+.sub-menu{
+    visibility: hidden;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+}
+.sub-menu li{
+    display: block; 
+    color: #fff;
+}
+.sub-menu li:hover{
+    background: #666;
+}
+.sub-menu:hover{
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.menu {
+    background-color: var(--menuBackgroundColor, #f0f0f0);
+    box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+}
+
+.menu__list {
+    display: flex;
+}
+
+.menu__link {
+    padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 
+=====
+TEXT UNDERLINED
+=====
+*/
+
+.text-underlined {
+    position: relative;
+    overflow: hidden;
+    will-change: color;
+    transition: color .25s ease-out;
+}
+
+    .text-underlined::before,
+    .text-underlined::after {
+        content: "";
+        width: 0;
+        height: 3px;
+        background-color: var(--textUnderlinedLineColor, currentColor);
+        will-change: width;
+        transition: width .1s ease-out;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .text-underlined::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .text-underlined::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .text-underlined:hover::before,
+    .text-underlined:hover::after {
+        width: 100%;
+        transition-duration: .2s;
+    }
+
+/*
+=====
+SETTINGS
+=====
+*/
+
+.page__custom-settings {
+    --menuBackgroundColor: #6c5ce7;
+    --menuLinkColor: #fff;
+    --menuLinkColorUnactive: #241c69;
+    --menuLinkOutlineOffset: -.5rem;
+}
+
+/* form */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    float: right;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 70%;
+  }
+  .contact{
+      float: left;
+      padding: 30px;
+  }
+  .icon{
+      padding: 4px;
+      padding-top: 10px;
+      max-width: 40px;
+      max-height: 40px;
+  }
+/*
+=====
+main
+=====
+*/
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    box-sizing: border-box;
+    width:100%;
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+body{
+    background-color:#c3b5df
+}
+section{
+    margin: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 10px;
+    background-color: #b19bdf;
+}
+footer{
+    margin: 10px;
+}
+img{
+    max-width: 50%;
+    height: auto;
+    padding: 20px;
+}
+.icon_head{
+    float: right;
+    padding-top: 140px;
+}
+
+.port_grid{
+    margin: 0px;
+    padding: 0px;
+    line-height: 0;       
+    -webkit-column-count: 4;    
+    -webkit-column-gap: 0px;    
+    -moz-column-count: 4;
+    -moz-column-gap: 0px;
+     column-count: 4;    
+     column-gap: 0px;    
+}
+.port_grid img{
+    max-width: 95%;
+    margin: 0px;
+    padding: 5px;
+    width: 100% !important;    
+   height: auto !important; 
+}
+.port_grid{
+    display:inline-block;    
+   margin-right: auto;    
+   margin-left: auto;  
+}
+@media (max-width: 1000px) {
+    #images-wrapper {
+    -moz-column-count:    3;
+    -webkit-column-count: 3;
+    column-count:         3;
+    }
+   }  
+ @media (max-width: 800px) {
+    #images-wrapper {
+    -moz-column-count:    2;
+    -webkit-column-count: 2;
+    column-count:         2;
+    }
+   }  
+ @media (max-width: 400px) {
+    #images-wrapper {
+    -moz-column-count:    1;
+    -webkit-column-count: 1;
+     column-count:        1;
+    }
+   }
+
+
+/* dropdown menu */
+/* Dropdown Button */
+.dropbtn {
+    font-size: medium;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    background-color: #6c5ce7;
+    color: white;
+    padding: 24px;
+    border: none;
+    text-transform: uppercase;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #6c5ce7;}
